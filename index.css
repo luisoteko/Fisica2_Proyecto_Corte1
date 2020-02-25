@@ -1,0 +1,13 @@
+.form{
+  display: flex;
+  justify-content: space-around;
+}
+
+.datos{
+  display: flex;
+  justify-content: space-around;
+}
+
+.ast{
+  position: absolute;
+}
