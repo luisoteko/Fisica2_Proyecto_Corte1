@@ -85,10 +85,35 @@ const calcular = () => {
 
   let unitarioi13 = unitarioi(vx1,vy1,vx3,vy3,vcarga1,vcarga3);
   let unitarioj13 = unitarioj(vx1,vy1,vx3,vy3,vcarga1,vcarga3);
-  
+
+  let unitarioi21 = unitarioi(vx2,vy2,vx1,vy1,vcarga2,vcarga1);
+  let unitarioj21 = unitarioj(vx2,vy2,vx1,vy1,vcarga2,vcarga1);
+
+  let unitarioi32 = unitarioi(vx3,vy3,vx2,vy2,vcarga3,vcarga2);
+  let unitarioj32 = unitarioj(vx3,vy3,vx2,vy2,vcarga3,vcarga2);
+
+  let unitarioi31 = unitarioi(vx3,vy3,vx1,vy1,vcarga3,vcarga1);
+  let unitarioj31 = unitarioj(vx3,vy3,vx1,vy1,vcarga3,vcarga1);
+
   let fuerza12 = Math.abs((k * vvalor1 * vvalor2) / Math.pow(distancia(vx1, vy1, vx2, vy2),2));
   let fuerza23 = Math.abs((k * vvalor2 * vvalor3) / Math.pow(distancia(vx2, vy2, vx3, vy3),2));
   let fuerza13 = Math.abs((k * vvalor1 * vvalor3) / Math.pow(distancia(vx1, vy1, vx3, vy3),2));
+
+  let fuerza21 = Math.abs((k * vvalor2 * vvalor1) / Math.pow(distancia(vx2, vy2, vx1, vy1),2));
+  let fuerza32 = Math.abs((k * vvalor3 * vvalor2) / Math.pow(distancia(vx3, vy3, vx2, vy2),2));
+  let fuerza31 = Math.abs((k * vvalor3 * vvalor1) / Math.pow(distancia(vx3, vy3, vx1, vy1),2));
+
+  let fuerzatotal1x = Math.abs((fuerza21*unitarioi21)+(fuerza31*unitarioi31));
+  let fuerzatotal2x = Math.abs((fuerza12*unitarioi12)+(fuerza32*unitarioi32));
+  let fuerzatotal3x = Math.abs((fuerza13*unitarioi13)+(fuerza13*unitarioi13));
+
+  let fuerzatotal1y = ((fuerza21*unitarioi21)+(fuerza31*unitarioj31));
+  let fuerzatotal2y = ((fuerza12*unitarioi12)+(fuerza32*unitarioj32));
+  let fuerzatotal3y = ((fuerza13*unitarioi13)+(fuerza13*unitarioj13));
+
+  let fuerzatotal1 = Math.abs(Math.sqrt(Math.pow(fuerzatotal1x,2)+Math.pow(fuerzatotal1y,2)));
+  let fuerzatotal2 = Math.abs(Math.sqrt(Math.pow(fuerzatotal2x,2)+Math.pow(fuerzatotal2y,2)));
+  let fuerzatotal3 = Math.abs(Math.sqrt(Math.pow(fuerzatotal3x,2)+Math.pow(fuerzatotal3y,2)));
 
   let campo1 = (k*vvalor1)/Math.pow(distancia(vx1,vy1,vpx,vpy),2);
   let campo2 = (k*vvalor2)/Math.pow(distancia(vx2,vy2,vpx,vpy),2);
@@ -106,6 +131,30 @@ const calcular = () => {
   document.getElementById("1-3").innerHTML = fuerza13.toExponential(2) + "N";
   document.getElementById("1-3x").innerHTML = "x: " + (fuerza13*unitarioi13).toExponential(2) + "N";
   document.getElementById("1-3y").innerHTML = "y: " + (fuerza13*unitarioj13).toExponential(2) + "N";
+
+  document.getElementById("2-1").innerHTML = fuerza21.toExponential(2) + "N";
+  document.getElementById("2-1x").innerHTML = "x: " + (fuerza21*unitarioi21).toExponential(2) + "N";
+  document.getElementById("2-1y").innerHTML = "y: " + (fuerza21*unitarioj21).toExponential(2) + "N";
+
+  document.getElementById("3-2").innerHTML = fuerza32.toExponential(2) + "N";
+  document.getElementById("3-2x").innerHTML = "x: " + (fuerza32*unitarioi32).toExponential(2) + "N";
+  document.getElementById("3-2y").innerHTML = "y: " + (fuerza32*unitarioj32).toExponential(2) + "N";
+
+  document.getElementById("3-1").innerHTML = fuerza31.toExponential(2) + "N";
+  document.getElementById("3-1x").innerHTML = "x: " + (fuerza31*unitarioi31).toExponential(2) + "N";
+  document.getElementById("3-1y").innerHTML = "y: " + (fuerza31*unitarioj31).toExponential(2) + "N";
+
+  document.getElementById("total1").innerHTML = fuerzatotal1.toExponential(2) + "N";
+  document.getElementById("total1x").innerHTML = "x: " + (fuerzatotal1*unitarioi21).toExponential(2) + "N";
+  document.getElementById("total1y").innerHTML = "y: " + (fuerzatotal1*unitarioj21).toExponential(2) + "N";
+
+  document.getElementById("total2").innerHTML = fuerzatotal2.toExponential(2) + "N";
+  document.getElementById("total2x").innerHTML = "x: " + (fuerzatotal2*unitarioi32).toExponential(2) + "N";
+  document.getElementById("total2y").innerHTML = "y: " + (fuerzatotal2*unitarioj32).toExponential(2) + "N";
+
+  document.getElementById("total3").innerHTML = fuerzatotal3.toExponential(2) + "N";
+  document.getElementById("total3x").innerHTML = "x: " + (fuerzatotal3*unitarioi31).toExponential(2) + "N";
+  document.getElementById("total3y").innerHTML = "y: " + (fuerzatotal3*unitarioj31).toExponential(2) + "N";
 
   document.getElementById("campo").innerHTML =   sumatoriaCampos(campo1,campo2,campo3).toExponential(2) + "N/C";
   loadGraphic();
@@ -138,7 +187,8 @@ const unitarioi = (x1,y1, x2,y2, signo1,signo2) => {
   if(signo1 == signo2){
     bandera = -1;
   }
-  let temp = (x2-x1) / magnitud((x2-x1), (y2-y1));
+
+  let temp = (x1-x2) / magnitud((x1-x2), (y1-y2));
   console.log(temp);
   return (temp*bandera);
 };
@@ -148,7 +198,7 @@ const unitarioj = (x1,y1, x2,y2, signo1,signo2) => {
   if(signo1 == signo2){
     bandera = -1;
   }
-  let temp = (y2-y1) / magnitud((x2-x1), (y2-y1));
+  let temp = (y1-y2) / magnitud((x1-x2), (y1-y2));
   return (temp*bandera);
 };
 

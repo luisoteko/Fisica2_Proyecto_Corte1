@@ -1,13 +1,37 @@
 .form{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  width: 90%;
+  flex-wrap: wrap;
+  margin-left: 20px;
 }
 
 .datos{
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
+  margin-left: 20px;
 }
 
 .ast{
-  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  width: 250px;
+  margin-left: 20px;
+
+}
+
+h4, h2, p.info{
+  margin-bottom: 0;
+  margin-left: 20px;
+}
+button{
+  margin-left: 25px;
+}
+
+.inputs{
+  width: 100px;
+}
+.labels{
+  width: 150px;
 }
