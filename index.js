@@ -164,13 +164,13 @@ const magnitud = (x, y) => {
   return Math.sqrt((Math.pow(x, 2) + Math.pow(y, 2)));
 };
 
-const sumatoriaCampos = (a, b, c) => {
-  let ai = vx1 / distancia(vx1, vy1, vpx, vpy);
-  let aj = vy1 / distancia(vx1, vy1, vpx, vpy);
-  let bi = vx2 / distancia(vx2, vy2, vpx, vpy);
-  let bj = vy2 / distancia(vx2, vy2, vpx, vpy);
-  let ci = vx3 / distancia(vx3, vy3, vpx, vpy);
-  let cj = vy3 / distancia(vx3, vy3, vpx, vpy);
+const sumatoriaCampos = (campo1, campo2, campo3) => {
+  let ai = campo1 * unitarioi(vx1, vy1, vpx, vpy, '', '.');
+  let aj = campo1 * unitarioj(vx1, vy1, vpx, vpy, '', '.');
+  let bi = campo2 * unitarioi(vx2, vy2, vpx, vpy, '', '.');
+  let bj = campo2 * unitarioj(vx2, vy2, vpx, vpy, '', '.');
+  let ci = campo3 * unitarioi(vx3, vy3, vpx, vpy, '', '.');
+  let cj = campo3 * unitarioj(vx3, vy3, vpx, vpy, '', '.');
   let x = ai + bi + ci;
   let y = aj + bj + cj;
   return magnitud(x,y);
