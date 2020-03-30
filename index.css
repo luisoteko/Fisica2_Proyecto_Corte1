@@ -30,3 +30,10 @@ button{
 .oculto{
   display: none;
 }
+#arrow{
+  max-width: 80px
+}
+.textDireccion{
+  position:relative;
+  top: -34px;
+}
