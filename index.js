@@ -1,34 +1,20 @@
 let valor1 = document.getElementById("valorCarga1");
-valor1.onchange = calcular();
 let x1 = document.getElementById("posicionCarga1x");
-x1.onchange = calcular();
 let y1 = document.getElementById("posicionCarga1y");
-y1.onchange = calcular();
 let carga1 = document.getElementById("Positiva1");
-carga1.onchange = calcular();
 
 let valor2 = document.getElementById("valorCarga2");
-valor2.onchange = calcular();
 let x2 = document.getElementById("posicionCarga2x");
-x2.onchange = calcular();
 let y2 = document.getElementById("posicionCarga2y");
-y2.onchange = calcular();
 let carga2 = document.getElementById("Positiva2");
-carga2.onchange = calcular();
 
 let valor3 = document.getElementById("valorCarga3");
-valor3.onchange = calcular();
 let x3 = document.getElementById("posicionCarga3x");
-x3.onchange = calcular();
 let y3 = document.getElementById("posicionCarga3y");
-y3.onchange = calcular();
-let carga3 = document.getElementById("Positiva3");
-carga3.onchange = calcular();
+let carga3 = document.getElementById("Positiva3")
 
 let px = document.getElementById("posicionPuntox");
-px.onchange = calcular();
-let py = document.getElementById("posicionPuntoy");
-py.onchange = calcular();
+let py = document.getElementById("posicionPuntoy")
 
 let vvalor1;
 let vx1;
