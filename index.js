@@ -1,20 +1,34 @@
 let valor1 = document.getElementById("valorCarga1");
+valor1.onchange = calcular();
 let x1 = document.getElementById("posicionCarga1x");
+x1.onchange = calcular();
 let y1 = document.getElementById("posicionCarga1y");
+y1.onchange = calcular();
 let carga1 = document.getElementById("Positiva1");
+carga1.onchange = calcular();
 
 let valor2 = document.getElementById("valorCarga2");
+valor2.onchange = calcular();
 let x2 = document.getElementById("posicionCarga2x");
+x2.onchange = calcular();
 let y2 = document.getElementById("posicionCarga2y");
+y2.onchange = calcular();
 let carga2 = document.getElementById("Positiva2");
+carga2.onchange = calcular();
 
 let valor3 = document.getElementById("valorCarga3");
+valor3.onchange = calcular();
 let x3 = document.getElementById("posicionCarga3x");
+x3.onchange = calcular();
 let y3 = document.getElementById("posicionCarga3y");
+y3.onchange = calcular();
 let carga3 = document.getElementById("Positiva3");
+carga3.onchange = calcular();
 
 let px = document.getElementById("posicionPuntox");
+px.onchange = calcular();
 let py = document.getElementById("posicionPuntoy");
+py.onchange = calcular();
 
 let vvalor1;
 let vx1;
@@ -126,39 +140,39 @@ const calcular = () => {
   // let energia23 = calcularEnergia(vvalor2, vvalor3, distancia(vx2,vy2,vx3,vy3));
   // let energia13 = calcularEnergia(vvalor1, vvalor3, distancia(vx1,vy1,vx3,vy3));
 
-  document.getElementById("1-2").innerHTML = fuerza12.toExponential(2) + "N r";
+  document.getElementById("1-2").innerHTML = fuerza12.toExponential(2) + "";
   document.getElementById("1-2x").innerHTML = "x: " + (fuerza12*unitarioi12).toExponential(2) + "N";
   document.getElementById("1-2y").innerHTML = "y: " + (fuerza12*unitarioj12).toExponential(2) + "N";
 
-  document.getElementById("2-3").innerHTML = fuerza23.toExponential(2) + "N r";
+  document.getElementById("2-3").innerHTML = fuerza23.toExponential(2) + "";
   document.getElementById("2-3x").innerHTML = "x: " + (fuerza23*unitarioi23).toExponential(2) + "N";
   document.getElementById("2-3y").innerHTML = "y: " + (fuerza23*unitarioj23).toExponential(2) + "N";
 
-  document.getElementById("1-3").innerHTML = fuerza13.toExponential(2) + "N r";
+  document.getElementById("1-3").innerHTML = fuerza13.toExponential(2) + "";
   document.getElementById("1-3x").innerHTML = "x: " + (fuerza13*unitarioi13).toExponential(2) + "N";
   document.getElementById("1-3y").innerHTML = "y: " + (fuerza13*unitarioj13).toExponential(2) + "N";
 
-  document.getElementById("2-1").innerHTML = fuerza21.toExponential(2) + "N r";
+  document.getElementById("2-1").innerHTML = fuerza21.toExponential(2) + "";
   document.getElementById("2-1x").innerHTML = "x: " + (fuerza21*unitarioi21).toExponential(2) + "N";
   document.getElementById("2-1y").innerHTML = "y: " + (fuerza21*unitarioj21).toExponential(2) + "N";
 
-  document.getElementById("3-2").innerHTML = fuerza32.toExponential(2) + "N r";
+  document.getElementById("3-2").innerHTML = fuerza32.toExponential(2) + "";
   document.getElementById("3-2x").innerHTML = "x: " + (fuerza32*unitarioi32).toExponential(2) + "N";
   document.getElementById("3-2y").innerHTML = "y: " + (fuerza32*unitarioj32).toExponential(2) + "N";
 
-  document.getElementById("3-1").innerHTML = fuerza31.toExponential(2) + "N r";
+  document.getElementById("3-1").innerHTML = fuerza31.toExponential(2) + "";
   document.getElementById("3-1x").innerHTML = "x: " + (fuerza31*unitarioi31).toExponential(2) + "N";
   document.getElementById("3-1y").innerHTML = "y: " + (fuerza31*unitarioj31).toExponential(2) + "N";
 
-  document.getElementById("total1").innerHTML = fuerzatotal1.toExponential(2) + "N r";
+  document.getElementById("total1").innerHTML = fuerzatotal1.toExponential(2) + "";
   document.getElementById("total1x").innerHTML = "x: " + (fuerzatotal1).toExponential(2) + "N";
   document.getElementById("total1y").innerHTML = "y: " + (fuerzatotal1).toExponential(2) + "N";
 
-  document.getElementById("total2").innerHTML = fuerzatotal2.toExponential(2) + "N r";
+  document.getElementById("total2").innerHTML = fuerzatotal2.toExponential(2) + "";
   document.getElementById("total2x").innerHTML = "x: " + (fuerzatotal2).toExponential(2) + "N";
   document.getElementById("total2y").innerHTML = "y: " + (fuerzatotal2).toExponential(2) + "N";
 
-  document.getElementById("total3").innerHTML = fuerzatotal3.toExponential(2) + "N r";
+  document.getElementById("total3").innerHTML = fuerzatotal3.toExponential(2) + "";
   document.getElementById("total3x").innerHTML = "x: " + (fuerzatotal3).toExponential(2) + "N";
   document.getElementById("total3y").innerHTML = "y: " + (fuerzatotal3).toExponential(2) + "N";
 
@@ -169,9 +183,9 @@ const calcular = () => {
   // document.getElementById("Energia13").innerHTML = energia13.toExponential(2);
   // document.getElementById("EnergiaTotal").innerHTML = (energia12 + energia23 + energia13).toExponential(2);
 
-  document.getElementById("potencial1").innerHTML = potencial1.toExponential(2);
-  document.getElementById("potencial2").innerHTML = potencial2.toExponential(2);
-  document.getElementById("potencial3").innerHTML = potencial3.toExponential(2);
+  document.getElementById("potencial1").innerHTML = potencial1.toExponential(2) + "V";
+  document.getElementById("potencial2").innerHTML = potencial2.toExponential(2) + "V";
+  document.getElementById("potencial3").innerHTML = potencial3.toExponential(2) + "V";
 
   loadGraphic();
 };
@@ -231,6 +245,7 @@ var chart;
 
 const loadGraphic = () => {
   chart = new CanvasJS.Chart("chartContainer", {
+    backgroundColor: "#D6CECE",
     animationEnabled: true,
     title:{
       text: "Ubicacion de cargas"

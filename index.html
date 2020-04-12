@@ -10,6 +10,7 @@
 <body>
   <link rel="stylesheet" href="./index.css">
   <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  <div class="contenido">
 
   <div class="form">
 
@@ -17,7 +18,6 @@
       <h4>
         Carga 1 (q<sub>1</sub>):
       </h4>
-      <br>
       Polaridad:
       <br>
       <label class="labels" for="Positiva1">
@@ -45,7 +45,6 @@
       <h4>
         Carga 2 (q<sub>2</sub>):
       </h4>
-      <br>
       Polaridad:
       <br>
       <label class="labels" for="Positiva2">
@@ -73,7 +72,6 @@
       <h4>
         Carga 3 (q<sub>3</sub>):
       </h4>
-      <br>
       Polaridad:
       <br>
       <label class="labels" for="Positiva3">
@@ -100,7 +98,8 @@
 
     <div class="punto">
       <h4>Punto:</h4>
-      <p>Por favor ingresa un punto para calcular el campo y los potenciales electricos</p>
+      <p class="explicacionPunto"><span>Por favor ingresa un punto para calcular </span>
+        <span>el campo y los potenciales electricos</span></p>
       <label class="labels" for="posicionPuntox"> <div class="label">Posicion X:</div>
         <input type="number" name="posicionPuntox" id="posicionPuntox" class="posicionCarga inputs"> m
       </label>
@@ -114,10 +113,10 @@
       </div>
     </div>
   </div>
-  <br>
   <button onclick="calcular()">Calcular</button>
   <br>
-  <img src="./img/Arrow.png" id="arrow" alt="Flecha"/><span class="textDireccion">:Direccion de el campo</span>
+  <br>
+  <img src="./img/Arrow.png" id="arrow" alt="Flecha"/><span class="textDireccion">:Direccion del campo</span>
   <img src="./img/ArrowsIn.png" id="arrowsIn" class="oculto" alt="Flechas entrando">
   <img src="./img/ArrowsOut.png" id="arrowsOut" class="oculto" alt="Flechas saliendo">
   <div id="chartContainer" style="height: 400px;">
@@ -221,19 +220,34 @@
       <p id="EnergiaTotal"></p>
     </div> -->
     <div class="datosD">
-      <p>Potencial q<sub>1</sub>:</p>
+      <p>Potencial q<sub>1</sub> en el punto:</p>
       <p id="potencial1"></p>
     </div>
     <div class="datosD">
-      <p>Potencial q<sub>2</sub>:</p>
+      <p>Potencial q<sub>2</sub> en el punto:</p>
       <p id="potencial2"></p>
     </div>
     <div class="datosD">
-      <p>Potencial q<sub>3</sub>:</p>
+      <p>Potencial q<sub>3</sub> en el punto:</p>
       <p id="potencial3"></p>
     </div>
   </div>
-  
+</div>
+  <div class="creditos">
+    <p>Hecho por:</p>
+    <pre>
+Luis Daniel Becerra Avellaneda
+         lbecerraa
+    </pre>
+    <pre>
+Bryan Julian Castillo Torres
+        bcastillot
+    </pre>
+    <pre>
+Daniela Hidalgo Devia
+      dhidalgod
+    </pre>
+  </div>
 
   <script src="./index.js"></script>
 
