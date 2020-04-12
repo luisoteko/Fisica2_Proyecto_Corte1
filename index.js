@@ -14,7 +14,7 @@ let y3 = document.getElementById("posicionCarga3y");
 let carga3 = document.getElementById("Positiva3");
 
 let px = document.getElementById("posicionPuntox");
-let py = document.getElementById("posicionPuntoy";
+let py = document.getElementById("posicionPuntoy");
 
 let vvalor1;
 let vx1;
