@@ -11,10 +11,10 @@ let carga2 = document.getElementById("Positiva2");
 let valor3 = document.getElementById("valorCarga3");
 let x3 = document.getElementById("posicionCarga3x");
 let y3 = document.getElementById("posicionCarga3y");
-let carga3 = document.getElementById("Positiva3")
+let carga3 = document.getElementById("Positiva3");
 
 let px = document.getElementById("posicionPuntox");
-let py = document.getElementById("posicionPuntoy")
+let py = document.getElementById("posicionPuntoy";
 
 let vvalor1;
 let vx1;
