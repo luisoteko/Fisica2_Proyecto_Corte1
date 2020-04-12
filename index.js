@@ -118,10 +118,13 @@ const calcular = () => {
   let campo1 = (k*vvalor1)/Math.pow(distancia(vx1,vy1,vpx,vpy),2);
   let campo2 = (k*vvalor2)/Math.pow(distancia(vx2,vy2,vpx,vpy),2);
   let campo3 = (k*vvalor3)/Math.pow(distancia(vx3,vy3,vpx,vpy),2);
-
-  let energia12 = calcularEnergia(vvalor1, vvalor2, distancia(vx1,vy1,vx2,vy2));
-  let energia23 = calcularEnergia(vvalor2, vvalor3, distancia(vx2,vy2,vx3,vy3));
-  let energia13 = calcularEnergia(vvalor1, vvalor3, distancia(vx1,vy1,vx3,vy3));
+  
+  let potencial1 =(k*vvalor1)/distancia(vx1,vy1,vpx,vpy);
+  let potencial2 =(k*vvalor2)/distancia(vx2,vy2,vpx,vpy);
+  let potencial3 =(k*vvalor3)/distancia(vx3,vy3,vpx,vpy);
+  // let energia12 = calcularEnergia(vvalor1, vvalor2, distancia(vx1,vy1,vx2,vy2));
+  // let energia23 = calcularEnergia(vvalor2, vvalor3, distancia(vx2,vy2,vx3,vy3));
+  // let energia13 = calcularEnergia(vvalor1, vvalor3, distancia(vx1,vy1,vx3,vy3));
 
   document.getElementById("1-2").innerHTML = fuerza12.toExponential(2) + "N r";
   document.getElementById("1-2x").innerHTML = "x: " + (fuerza12*unitarioi12).toExponential(2) + "N";
@@ -161,10 +164,14 @@ const calcular = () => {
 
   document.getElementById("campo").innerHTML =   sumatoriaCampos(campo1,campo2,campo3).toExponential(2) + "N/C";
   
-  document.getElementById("Energia12").innerHTML = energia12.toExponential(2);
-  document.getElementById("Energia23").innerHTML = energia23.toExponential(2);
-  document.getElementById("Energia13").innerHTML = energia13.toExponential(2);
-  document.getElementById("EnergiaTotal").innerHTML = (energia12 + energia23 + energia13).toExponential(2);
+  // document.getElementById("Energia12").innerHTML = energia12.toExponential(2);
+  // document.getElementById("Energia23").innerHTML = energia23.toExponential(2);
+  // document.getElementById("Energia13").innerHTML = energia13.toExponential(2);
+  // document.getElementById("EnergiaTotal").innerHTML = (energia12 + energia23 + energia13).toExponential(2);
+
+  document.getElementById("potencial1").innerHTML = potencial1.toExponential(2);
+  document.getElementById("potencial2").innerHTML = potencial2.toExponential(2);
+  document.getElementById("potencial3").innerHTML = potencial3.toExponential(2);
 
   loadGraphic();
 };
@@ -173,9 +180,9 @@ const magnitud = (x, y) => {
   return Math.sqrt((Math.pow(x, 2) + Math.pow(y, 2)));
 };
 
-const calcularEnergia = (carga1, carga2, distancia) =>{
-  return ((k*carga1*carga2)/distancia)
-}
+// const calcularEnergia = (carga1, carga2, distancia) =>{
+//   return ((k*carga1*carga2)/distancia)
+// }
 
 const sumatoriaCampos = (campo1, campo2, campo3) => {
   let ai = campo1 * unitarioi(vx1, vy1, vpx, vpy, '', '.');
