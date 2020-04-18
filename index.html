@@ -5,205 +5,369 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cargas y Campos</title>
+
+  <link rel="stylesheet" href="./index.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 
 <body>
-  <link rel="stylesheet" href="./index.css">
   <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
   <div class="contenido">
 
-  <div class="form">
-
-    <div id="datosCarga1" class="datosCarga">
-      <h4>
-        Carga 1 (q<sub>1</sub>):
-      </h4>
-      Polaridad:
-      <br>
-      <label class="labels" for="Positiva1">
-        <input name="signo1" type="radio" value="Positiva" id="Positiva1" checked />Positiva
-      </label>
-      <br>
-      <label class="labels" for="Negativa1">
-        <input name="signo1" type="radio" value="Negativa" id="Negativa1" /> Negativa
-      </label>
-      <br>
-      <label class="labels" for="valorCarga1"> <div class="label">Carga:</div>
-        <input type="number" min="0" name="valorCarga1" id="valorCarga1" class="valorCarga inputs"> Coulombs
-      </label>
-      <br>
-      <label class="labels" for="posicionCarga1x"> <div class="label">Posicion X:</div>
-        <input type="number" name="posicionCarga1x" id="posicionCarga1x" class="posicionCarga inputs"> m
-      </label>
-      <br>
-      <label class="labels" for="posicionCarga1y"> <div class="label">Posicion Y:</div>
-        <input type="number" name="posicionCarga1y" id="posicionCarga1y" class="posicionCarga inputs"> m
-      </label>
-    </div>
-    <br>
-    <div id="datosCarga2" class="datosCarga">
-      <h4>
-        Carga 2 (q<sub>2</sub>):
-      </h4>
-      Polaridad:
-      <br>
-      <label class="labels" for="Positiva2">
-        <input name="signo2" type="radio" value="Positiva" id="Positiva2" checked />Positiva
-      </label>
-      <br>
-      <label class="labels" for="Negativa2">
-        <input name="signo2" type="radio" value="Negativa" id="Negativa2" />Negativa
-      </label>
-      <br>
-      <label class="labels" for="valorCarga2"> <div class="label">Carga:</div>
-        <input type="number" min="0" name="valorCarga2" id="valorCarga2" class="valorCarga inputs"> Coulombs
-      </label>
-      <br>
-      <label class="labels" for="posicionCarga2x"> <div class="label">Posicion X:</div>
-        <input type="number" name="posicionCarga2x" id="posicionCarga2x" class="posicionCarga inputs"> m
-      </label>
-      <br>
-      <label class="labels" for="posicionCarga2y"> <div class="label">Posicion Y:</div>
-        <input type="number" name="posicionCarga2y" id="posicionCarga2y" class="posicionCarga inputs"> m
-      </label>
-    </div>
-    <br>
-    <div id="datosCarga3" class="datosCarga">
-      <h4>
-        Carga 3 (q<sub>3</sub>):
-      </h4>
-      Polaridad:
-      <br>
-      <label class="labels" for="Positiva3">
-        <input name="signo3" type="radio" value="Positiva" id="Positiva3" checked />Positiva
-      </label>
-      <br>
-      <label class="labels" for="Negativa3">
-        <input name="signo3" type="radio" value="Negativa" id="Negativa3" />Negativa
-      </label>
-      <br>
-      <label class="labels" for="valorCarga3"> <div class="label">Carga:</div>
-        <input type="number" min="0" name="valorCarga1" id="valorCarga3" class="valorCarga inputs"> Coulombs
-      </label>
-      <br>
-      <label class="labels" for="posicionCarga3x"> <div class="label">Posicion X:</div>
-        <input type="number" name="posicionCarga3x" id="posicionCarga3x" class="posicionCarga inputs"> m
-      </label>
-      <br>
-      <label class="labels" for="posicionCarga3y"> <div class="label">Posicion Y:</div>
-        <input type="number" name="posicionCarga3y" id="posicionCarga3y" class="posicionCarga inputs"> m
-      </label>
-      
-    </div>
-
-    <div class="punto">
-      <h4>Punto:</h4>
-      <p class="explicacionPunto"><span>Por favor ingresa un punto para calcular </span>
-        <span>el campo y los potenciales electricos</span></p>
-      <label class="labels" for="posicionPuntox"> <div class="label">Posicion X:</div>
-        <input type="number" name="posicionPuntox" id="posicionPuntox" class="posicionCarga inputs"> m
-      </label>
-      <br>
-      <label class="labels" for="posicionPuntoy"> <div class="label">Posicion Y:</div>
-        <input type="number" name="posicionPuntoy" id="posicionPuntoy" class="posicionCarga inputs"> m
-      </label>
-      <div class="datosD ast">
-        <p>* e+n = x10^n</p>
-        <p>* e-n = x10^-n</p>
+    <form class="form" method="POST" id="formulario">
+      <div class="Cargas">
+        <div id="datosCarga1" class="datosCarga">
+          <h4>
+            Carga 1 (q<sub>1</sub>):
+          </h4>
+          Polaridad:
+          <br>
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="labels btn btn-secondary active Ppositiva" for="Positiva1">
+              <input name="signo1" type="radio" value="Positiva" id="Positiva1" checked />Positiva
+            </label>
+            <label class="labels btn btn-secondary Pnegativa" for="Negativa1">
+              <input name="signo1" type="radio" value="Negativa" id="Negativa1" /> Negativa
+            </label>
+          </div>
+          <br>
+          <label class="labels" for="valorCarga1">
+            <div class="input-group mb-3">
+              <div class="label input-group-prepend">
+                <span class="input-group-text">Carga:</span></div>
+              <input type="number" min="0" name="valorCarga1" id="valorCarga1" class="form-control valorCarga inputs">
+              <div class="input-group-append">
+                <span class="input-group-text">C</span>
+              </div>
+            </div>
+          </label>
+          <br>
+          <label class="labels" for="posicionCarga1x">
+            <div class="input-group mb-3">
+              <div class="label input-group-prepend">
+                <span class="input-group-text">Posicion X:</span></div>
+              <input type="number" name="posicionCarga1x" id="posicionCarga1x"
+                class="form-control posicionCarga inputs">
+              <div class="input-group-append">
+                <span class="input-group-text">m</span>
+              </div>
+            </div>
+          </label>
+          <br>
+          <label class="labels" for="posicionCarga1y">
+            <div class="input-group mb-3">
+              <div class="label input-group-prepend">
+                <span class="input-group-text">Posicion Y:</span></div>
+              <input type="number" name="posicionCarga1y" id="posicionCarga1y"
+                class="form-control posicionCarga inputs">
+              <div class="input-group-append">
+                <span class="input-group-text">m</span>
+              </div>
+            </div>
+          </label>
+        </div>
+        <br>
+        <div id="datosCarga2" class="datosCarga">
+          <h4>
+            Carga 2 (q<sub>2</sub>):
+          </h4>
+          Polaridad:
+          <br>
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="labels btn btn-secondary active Ppositiva" for="Positiva2">
+              <input name="signo2" type="radio" value="Positiva" id="Positiva2" checked />Positiva
+            </label>
+            <label class="labels btn btn-secondary Pnegativa" for="Negativa2">
+              <input name="signo2" type="radio" value="Negativa" id="Negativa2" />Negativa
+            </label>
+          </div>
+          <br>
+          <label class="labels" for="valorCarga2">
+            <div class="input-group mb-3">
+              <div class="label input-group-prepend">
+                <span class="input-group-text">Carga:</span></div>
+              <input type="number" min="0" name="valorCarga2" id="valorCarga2" class="form-control valorCarga inputs">
+              <div class="input-group-append">
+                <span class="input-group-text">C</span>
+              </div>
+            </div>
+          </label>
+          <br>
+          <label class="labels" for="posicionCarga2x">
+            <div class="input-group mb-3">
+              <div class="label input-group-prepend">
+                <span class="input-group-text">Posicion X:</span></div>
+              <input type="number" name="posicionCarga2x" id="posicionCarga2x"
+                class="form-control posicionCarga inputs">
+              <div class="input-group-append">
+                <span class="input-group-text">m</span>
+              </div>
+            </div>
+          </label>
+          <br>
+          <label class="labels" for="posicionCarga2y">
+            <div class="input-group mb-3">
+              <div class="label input-group-prepend">
+                <span class="input-group-text">Posicion Y:</span></div>
+              <input type="number" name="posicionCarga2y" id="posicionCarga2y"
+                class="form-control posicionCarga inputs">
+              <div class="input-group-append">
+                <span class="input-group-text">m</span>
+              </div>
+            </div>
+          </label>
+        </div>
+        <br>
+        <div id="datosCarga3" class="datosCarga">
+          <h4>
+            Carga 3 (q<sub>3</sub>):
+          </h4>
+          Polaridad:
+          <br>
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="labels btn btn-secondary active Ppositiva" for="Positiva3">
+              <input name="signo3" type="radio" value="Positiva" id="Positiva3" checked />Positiva
+            </label>
+            <label class="labels btn btn-secondary Pnegativa" for="Negativa3">
+              <input name="signo3" type="radio" value="Negativa" id="Negativa3" />Negativa
+            </label>
+          </div>
+          <br>
+          <label class="labels" for="valorCarga3">
+            <div class="input-group mb-3">
+              <div class="label input-group-prepend">
+                <span class="input-group-text">Carga:</span></div>
+              <input type="number" min="0" name="valorCarga1" id="valorCarga3" class="form-control valorCarga inputs">
+              <div class="input-group-append">
+                <span class="input-group-text">C</span>
+              </div>
+            </div>
+          </label>
+          <br>
+          <label class="labels" for="posicionCarga3x">
+            <div class="input-group mb-3">
+              <div class="label input-group-prepend">
+                <span class="input-group-text">Posicion X:</span></div>
+              <input type="number" name="posicionCarga3x" id="posicionCarga3x"
+                class="form-control posicionCarga inputs">
+              <div class="input-group-append">
+                <span class="input-group-text">m</span>
+              </div>
+            </div>
+          </label>
+          <br>
+          <label class="labels" for="posicionCarga3y">
+            <div class="input-group mb-3">
+              <div class="label input-group-prepend">
+                <span class="input-group-text">Posicion Y:</span></div>
+              <input type="number" name="posicionCarga3y" id="posicionCarga3y"
+                class="form-control posicionCarga inputs">
+              <div class="input-group-append">
+                <span class="input-group-text">m</span>
+              </div>
+            </div>
+          </label>
+        </div>
       </div>
-    </div>
-  </div>
-  <button onclick="calcular()">Calcular</button>
-  <br>
-  <br>
-  <img src="./img/Arrow.png" id="arrow" alt="Flecha"/><span class="textDireccion">:Direccion del campo</span>
-  <img src="./img/ArrowsIn.png" id="arrowsIn" class="oculto" alt="Flechas entrando">
-  <img src="./img/ArrowsOut.png" id="arrowsOut" class="oculto" alt="Flechas saliendo">
-  <div id="chartContainer" style="height: 400px;">
-    <h2>Ubicacion de cargas</h2>
-    <p class="info">
-      Por favor ingresa las cargas y oprime calcular para visualizar la grafica
-    </p>
-  </div>
 
-  <h2>Resultados</h2>
+      <div class="punto">
+        <h4 id="titulo_punto">Punto:</h4>
+        <p class="explicacionPunto"><span>Por favor ingresa un punto para calcular
+            el campo y los potenciales electricos</span></p>
+        <label class="labels" for="posicionPuntox">
+          <div class="input-group mb-3">
+            <div class="label input-group-prepend">
+              <span class="input-group-text">Posicion X:</span></div>
+            <input type="number" name="posicionPuntox" id="posicionPuntox" class="form-control posicionCarga inputs">
+            <div class="input-group-append">
+              <span class="input-group-text">m</span>
+            </div>
+          </div>
+        </label>
+        <label class="labels" for="posicionPuntoy">
+          <div class="input-group mb-3">
+            <div class="label input-group-prepend">
+              <span class="input-group-text">Posicion Y:</span></div>
+            <input type="number" name="posicionPuntoy" id="posicionPuntoy" class="form-control posicionCarga inputs">
+            <div class="input-group-append">
+              <span class="input-group-text">m</span>
+            </div>
+          </div>
+        </label>
+        <div class="datosD ast">
+          * e+n = x10^n
+          <br>
+          * e-n = x10^-n
+        </div>
+      </div>
+      <input type="submit" class="btn btn-primary" value="Calcular">
 
-  <div class="datos">
-    <div class="datosD">
-      <p>Fuerza 1 - 2 (magnitud):</p>
-      <p id="1-2"></p>
-      <p>Componentes:</p>
-      <p id="1-2x">x:</p>
-      <p id="1-2y">y:</p>
+    </form>
+    <br>
+    <br>
+    <img src="./img/Arrow.png" id="arrow" alt="Flecha" /><span class="textDireccion">:Direccion del campo</span>
+    <img src="./img/ArrowsIn.png" id="arrowsIn" class="oculto" alt="Flechas entrando">
+    <img src="./img/ArrowsOut.png" id="arrowsOut" class="oculto" alt="Flechas saliendo">
+    <div id="chartContainer" style="height: 400px;">
+      <h2>Ubicacion de cargas</h2>
+      <p class="info">
+        Por favor ingresa las cargas y oprime calcular para visualizar la grafica
+      </p>
     </div>
-    <div class="datosD">
-      <p>Fuerza 2 - 3 (magnitud):</p>
-      <p id="2-3"></p>
-      <p>Componentes:</p>
-      <p id="2-3x">x:</p>
-      <p id="2-3y">y:</p>
-    </div>
-    <div class="datosD">
-      <p>Fuerza 1 - 3 (magnitud):</p>
-      <p id="1-3"></p>
-      <p>Componentes:</p>
-      <p id="1-3x">x:</p>
-      <p id="1-3y">y:</p>
-    </div>
-  </div>
-  <div class="datos">
-    <div class="datosD">
-      <p>Fuerza 2 - 1 (magnitud):</p>
-      <p id="2-1"></p>
-      <p>Componentes:</p>
-      <p id="2-1x">x:</p>
-      <p id="2-1y">y:</p>
-    </div>
-    <div class="datosD">
-      <p>Fuerza 3 - 2 (magnitud):</p>
-      <p id="3-2"></p>
-      <p>Componentes:</p>
-      <p id="3-2x">x:</p>
-      <p id="3-2y">y:</p>
-    </div>
-    <div class="datosD">
-      <p>Fuerza 3 - 1 (magnitud):</p>
-      <p id="3-1"></p>
-      <p>Componentes:</p>
-      <p id="3-1x">x:</p>
-      <p id="3-1y">y:</p>
-    </div>
-  </div>
-  <div class="datos">
-    <div class="datosD">
-      <p>Fuerza total sobre q<sub>1</sub> (magnitud):</p>
-      <p id="total1"></p>
-      <p>Componentes:</p>
-      <p id="total1x">x:</p>
-      <p id="total1y">y:</p>
-    </div>
-    <div class="datosD">
-      <p>Fuerza total sobre q<sub>2</sub> (magnitud):</p>
-      <p id="total2"></p>
-      <p>Componentes:</p>
-      <p id="total2x">x:</p>
-      <p id="total2y">y:</p>
-    </div>
-    <div class="datosD">
-      <p>Fuerza total sobre q<sub>3</sub> (magnitud):</p>
-      <p id="total3"></p>
-      <p>Componentes:</p>
-      <p id="total3x">x:</p>
-      <p id="total3y">y:</p>
-    </div>
+    <div class="resultados">
+      <h2>Resultados</h2>
+      <div class="accordion" id="accordion">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="mb-0"><button class="btn btn-link" data-toggle="collapse" data-target="#Fuerza">Fuerza</button>
+            </h3>
+          </div>
+          <div class="collapse" id="Fuerza" data-parent="#accordion">
+            <div class="card-body">
+              <div class="datos">
+                <div class="datosD">
+                  <h4>Fuerzas sobre q<sub>1</sub></h4>
+                </div>
+                <div class="datosD">
+                  <h4>Fuerzas sobre q<sub>2</sub></h4>
+                </div>
+                <div class="datosD">
+                  <h4>Fuerzas sobre q<sub>3</sub></h4>
+                </div>
+              </div>
+              <div class="datos">
+                <div class="datosD">
+                  <p>Fuerza <sub>2 - 1</sub> (magnitud):</p>
+                  <p id="2-1"></p>
+                  <p>Componentes:</p>
+                  <p id="2-1x">x:</p>
+                  <p id="2-1y">y:</p>
+                </div>
 
-    <div>
-      <p>Campo sobre el punto (magnitud): </p>
-      <p id="campo"></p>
-    </div>
-  </div>
-  <div class="datos">
-  <!-- <div class="datosD">
+                <div class="datosD">
+                  <p>Fuerza <sub>1 - 2</sub> (magnitud):</p>
+                  <p id="1-2"></p>
+                  <p>Componentes:</p>
+                  <p id="1-2x">x:</p>
+                  <p id="1-2y">y:</p>
+                </div>
+
+                <div class="datosD">
+                  <p>Fuerza <sub>1 - 3</sub> (magnitud):</p>
+                  <p id="1-3"></p>
+                  <p>Componentes:</p>
+                  <p id="1-3x">x:</p>
+                  <p id="1-3y">y:</p>
+                </div>
+
+              </div>
+              <div class="datos">
+                <div class="datosD">
+                  <p>Fuerza <sub>3 - 1</sub> (magnitud):</p>
+                  <p id="3-1"></p>
+                  <p>Componentes:</p>
+                  <p id="3-1x">x:</p>
+                  <p id="3-1y">y:</p>
+                </div>
+
+                <div class="datosD">
+                  <p>Fuerza <sub>3 - 2</sub> (magnitud):</p>
+                  <p id="3-2"></p>
+                  <p>Componentes:</p>
+                  <p id="3-2x">x:</p>
+                  <p id="3-2y">y:</p>
+                </div>
+
+                <div class="datosD">
+                  <p>Fuerza <sub>2 - 3</sub> (magnitud):</p>
+                  <p id="2-3"></p>
+                  <p>Componentes:</p>
+                  <p id="2-3x">x:</p>
+                  <p id="2-3y">y:</p>
+                </div>
+
+              </div>
+              <div class="datos">
+                <div class="datosD">
+                  <p>Fuerza total sobre q<sub>1</sub> (magnitud):</p>
+                  <p id="total1"></p>
+                  <p>Componentes:</p>
+                  <p id="total1x">x:</p>
+                  <p id="total1y">y:</p>
+                </div>
+                <div class="datosD">
+                  <p>Fuerza total sobre q<sub>2</sub> (magnitud):</p>
+                  <p id="total2"></p>
+                  <p>Componentes:</p>
+                  <p id="total2x">x:</p>
+                  <p id="total2y">y:</p>
+                </div>
+                <div class="datosD">
+                  <p>Fuerza total sobre q<sub>3</sub> (magnitud):</p>
+                  <p id="total3"></p>
+                  <p>Componentes:</p>
+                  <p id="total3x">x:</p>
+                  <p id="total3y">y:</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <h3 class="mb-0"><button class="btn btn-link collapsed" data-toggle="collapse"
+                data-target="#Campo">Campo</button></h3>
+          </div>
+          <div class="collapse" id="Campo" data-parent="#accordion">
+            <div class="card-body">
+              <div class="datos">
+                <div class="datosD">
+                  <p>Campo de q<sub>1</sub> sobre el punto (magnitud):</p>
+                  <p id="campo1"></p>
+                  <p>Componentes:</p>
+                  <p id="campo1x">x:</p>
+                  <p id="campo1y">y:</p>
+                </div>
+                <div class="datosD">
+                  <p>Campo de q<sub>2</sub> sobre el punto (magnitud):</p>
+                  <p id="campo2"></p>
+                  <p>Componentes:</p>
+                  <p id="campo2x">x:</p>
+                  <p id="campo2y">y:</p>
+                </div>
+                <div class="datosD">
+                  <p>Campo de q<sub>3</sub> sobre el punto (magnitud):</p>
+                  <p id="campo3"></p>
+                  <p>Componentes:</p>
+                  <p id="campo3x">x:</p>
+                  <p id="campo3y">y:</p>
+                </div>
+              </div>
+              <div class="datos">
+                <div class="datosD">
+                  <p>Campo total sobre el punto (magnitud): </p>
+                  <p id="campot"></p>
+                  <p>Componentes:</p>
+                  <p id="campotx">x:</p>
+                  <p id="campoty">y:</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <h3 class="mb-0"><button class="btn btn-link collapsed" data-toggle="collapse"
+                data-target="#Potencial">Potencial</button></h3>
+          </div>
+          <div class="collapse" id="Potencial" data-parent="#accordion">
+            <div class="card-body">
+
+        <div class="datos">
+          <!-- <div class="datosD">
       <p>Trabajo 1-2:</p>
       <p id="Energia12"></p>
     </div>
@@ -219,38 +383,57 @@
       <p>Trabajo Total:</p>
       <p id="EnergiaTotal"></p>
     </div> -->
-    <div class="datosD">
-      <p>Potencial q<sub>1</sub> en el punto:</p>
-      <p id="potencial1"></p>
-    </div>
-    <div class="datosD">
-      <p>Potencial q<sub>2</sub> en el punto:</p>
-      <p id="potencial2"></p>
-    </div>
-    <div class="datosD">
-      <p>Potencial q<sub>3</sub> en el punto:</p>
-      <p id="potencial3"></p>
+          <div class="datosD">
+            <p>Potencial q<sub>1</sub> en el punto:</p>
+            <p id="potencial1"></p>
+          </div>
+          <div class="datosD">
+            <p>Potencial q<sub>2</sub> en el punto:</p>
+            <p id="potencial2"></p>
+          </div>
+          <div class="datosD">
+            <p>Potencial q<sub>3</sub> en el punto:</p>
+            <p id="potencial3"></p>
+          </div>
+          <div class="datosD">
+            <p>Potencial total en el punto:</p>
+            <p id="potencialt"></p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-  <div class="creditos">
-    <p>Hecho por:</p>
-    <pre>
+</div>
+</div>
+
+    <div class="creditos">
+      <p>Hecho por:</p>
+      <pre>
 Luis Daniel Becerra Avellaneda
          lbecerraa
     </pre>
-    <pre>
+      <pre>
 Bryan Julian Castillo Torres
         bcastillot
     </pre>
-    <pre>
+      <pre>
 Daniela Hidalgo Devia
       dhidalgod
     </pre>
-  </div>
+    </div>
 
-  <script src="./index.js"></script>
 
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+    <script src="./index.js"></script>
 </body>
 
 </html>
