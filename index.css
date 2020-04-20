@@ -1,13 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Baloo+Paaji+2&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap');
 
 body{
-  background-color: rgb(214, 206, 206)!important;
+  background-color: bisque!important;
   margin: 0;
-  font-family: 'Baloo Paaji 2', cursive;
+  font-family: 'Comic Neue', cursive !important;
 }
 
 input[type="number"]{
-  background-color: rgb(243, 240, 240)!important;
+  background-color: rgb(251, 244, 234)!important;
+}
+
+h1,h2,h3,h4,h5,h6{
+  font-family: 'Open Sans', cursive;
+  font-weight: 700;
 }
 
 .form{
@@ -87,7 +93,7 @@ button{
   bottom:0;
   display: flex;
   justify-content: space-around;
-  background: rgb(73, 70, 70);
+  background: rgb(194, 172, 129);
 }
 .contenido{
   margin:3%;
@@ -102,4 +108,20 @@ button{
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+#chartContainer{
+  margin: auto;
+}
+
+.card-body{
+  background-color: bisque;
+}
+.card-header{
+  background-color: rgb(251, 244, 234)!important;
+}
+
+.card-header h3, .card-header h3 button{
+  background-color: rgb(251, 244, 234);
+  height: 100%;
+  width: 100%;
 }

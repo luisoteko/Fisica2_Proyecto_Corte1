@@ -14,7 +14,9 @@
 <body>
   <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
   <div class="contenido">
-
+    <h1>Proyecto Fisica 2: Electrica</h1>
+    <br>
+    <br>
     <form class="form" method="POST" id="formulario">
       <div class="Cargas">
         <div id="datosCarga1" class="datosCarga">
@@ -173,8 +175,8 @@
 
       <div class="punto">
         <h4 id="titulo_punto">Punto:</h4>
-        <p class="explicacionPunto"><span>Por favor ingresa un punto para calcular
-            el campo y los potenciales electricos</span></p>
+        <p class="explicacionPunto"><span>Por favor ingresa un punto para calcular el campo y los potenciales electricos</span>
+          <span>Si no lo ingresa se asumira el punto (0,0)</span></p>
         <label class="labels" for="posicionPuntox">
           <div class="input-group mb-3">
             <div class="label input-group-prepend">
@@ -206,15 +208,29 @@
     </form>
     <br>
     <br>
-    <img src="./img/Arrow.png" id="arrow" alt="Flecha" /><span class="textDireccion">:Direccion del campo</span>
-    <img src="./img/ArrowsIn.png" id="arrowsIn" class="oculto" alt="Flechas entrando">
-    <img src="./img/ArrowsOut.png" id="arrowsOut" class="oculto" alt="Flechas saliendo">
-    <div id="chartContainer" style="height: 400px;">
-      <h2>Ubicacion de cargas</h2>
-      <p class="info">
-        Por favor ingresa las cargas y oprime calcular para visualizar la grafica
-      </p>
+
+    <div class="accordion" id="accordion2">
+      <div class="card">
+        <div class="card-header">
+          <h3><button class="btn btn-link" data-toggle="collapse" data-target="#Cargas">Ubicacion de cargas</button></h3>
+        </div>
+        <div class="collapse" id="Cargas" data-parent="#accordion2">
+          <div class="card-body">
+            <span>Si la grafica no se aprecia correctamente por favor vuelve a dar click en calcular </span><br>
+            <img src="./img/Arrow.png" id="arrow" alt="Flecha" /><span class="textDireccion">:Direccion de la fuerza total sobre cada carga</span>
+            <img src="./img/Arrow.png" id="arrowToDraw" alt="Flecha" class="oculto"/>
+            <img src="./img/ArrowsIn.png" id="arrowsIn" class="oculto" alt="Flechas entrando">
+            <img src="./img/ArrowsOut.png" id="arrowsOut" class="oculto" alt="Flechas saliendo">
+            <div id="chartContainer" style="height: 420px; width: 400px; ">
+              <p class="info">
+                Por favor ingresa las cargas y oprime calcular para visualizar la grafica
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+
     <div class="resultados">
       <h2>Resultados</h2>
       <div class="accordion" id="accordion">
@@ -433,7 +449,7 @@ Daniela Hidalgo Devia
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
-    <script src="./index.js"></script>
+    <script src="index.js"></script>
 </body>
 
 </html>
