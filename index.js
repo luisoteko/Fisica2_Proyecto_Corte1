@@ -447,12 +447,10 @@ const loadGraphic = () => {
       horizontalAlign: 'left'
     },
     axisX: {
-      title:"X(m)",
-      minimum: 0
+      title:"X(m)"
     },
     axisY: {
-      title:"Y(m)",
-      minimum: 0
+      title:"Y(m)"
     },
     legend:{
       horizontalAlign: "center"
