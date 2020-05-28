@@ -24,6 +24,9 @@ let carga3 = document.getElementById("Positiva3");
 let px = document.getElementById("posicionPuntox");
 let py = document.getElementById("posicionPuntoy");
 
+let velocidadX = document.getElementById("velocidadX");
+let velocidadY = document.getElementById("velocidadY");
+
 let vvalor1;
 let vx1;
 let vy1;
@@ -83,8 +86,12 @@ let potencial3;
 let angulo1;
 let angulo2;
 let angulo3;
-
+let vvelocidadx;
+let vvelocidady;
 const k = 9000000000;
+const u0 = 4*Math.PI * 10**-7
+
+console.log(u0.toExponential(2))
 
 const leerValores = () => {
   cargasP = [];
@@ -103,7 +110,8 @@ const leerValores = () => {
   vcarga1 = carga1.checked ? 'Positiva': 'Negativa';
   vcarga2 = carga2.checked ? 'Positiva': 'Negativa';
   vcarga3 = carga3.checked ? 'Positiva': 'Negativa';
-  
+  vvelocidadx = velocidadX.value||0;
+  vvelocidady = velocidadY.value||0;
 };
 
 const calcular = () => {
@@ -167,6 +175,21 @@ const calcular = () => {
   angulo2 = Math.abs(Math.atan(fuerzatotal2y/fuerzatotal2x));
   angulo3 = Math.abs(Math.atan(fuerzatotal3y/fuerzatotal3x));
 
+  d1px = vx1 - vpx
+  d1py = vy1 - vpy
+  d2px = vx2 - vpx
+  d2py = vy2 - vpy
+  d3px = vx3 - vpx
+  d3py = vy3 - vpy
+
+  campoMagnetico1 = (u0/(4*Math.PI)) *  vvalor1 * productoCruz2x2(d1px, d1py, vvelocidadx, vvelocidady) / (distancia(vx1,vy1,vpx,vpy)**3);
+  campoMagnetico2 = (u0/(4*Math.PI)) *  vvalor2 * productoCruz2x2(d2px, d2py, vvelocidadx, vvelocidady) / (distancia(vx2,vy2,vpx,vpy)**3);
+  campoMagnetico3 = (u0/(4*Math.PI)) *  vvalor3 * productoCruz2x2(d3px, d3py, vvelocidadx, vvelocidady) / (distancia(vx3,vy3,vpx,vpy)**3);
+  campoMagneticoT = campoMagnetico1 + campoMagnetico2 + campoMagnetico3;
+
+  fuerzaMagnetica1 = vvalor1 * distancia(0,0,vvelocidadx,vvelocidady) * campoMagnetico1;
+  fuerzaMagnetica2 = vvalor2 * distancia(0,0,vvelocidadx,vvelocidady) * campoMagnetico2;
+  fuerzaMagnetica3 = vvalor3 * distancia(0,0,vvelocidadx,vvelocidady) * campoMagnetico3;
 
   if(fuerzatotal1x>=0 && fuerzatotal1y>=0){
     while(angulo1.toString()!="NaN" && !(angulo1>=0 && angulo1<=(1/2)*Math.PI)){
@@ -367,6 +390,16 @@ const calcular = () => {
   document.getElementById("potencial3").innerText = (potencial3||0).toExponential(2) + "V";
   document.getElementById("potencialt").innerText = (((potencial1)||0)+((potencial2)||0)+((potencial3)||0)).toExponential(2) + "V";
 
+  document.getElementById("campoMagnetico1").innerText = (campoMagnetico1||0).toExponential(2) + "T";
+  document.getElementById("campoMagnetico2").innerText = (campoMagnetico2||0).toExponential(2) + "T";
+  document.getElementById("campoMagnetico3").innerText = (campoMagnetico3||0).toExponential(2) + "T";
+  document.getElementById("campoMagneticoT").innerText = (campoMagneticoT||0).toExponential(2) + "T";
+
+  document.getElementById("fuerzaMagnetica1").innerText = (fuerzaMagnetica1||0).toExponential(2) + "T";
+  document.getElementById("fuerzaMagnetica2").innerText = (fuerzaMagnetica2||0).toExponential(2) + "T";
+  document.getElementById("fuerzaMagnetica3").innerText = (fuerzaMagnetica3||0).toExponential(2) + "T";
+
+
   cargas = [
     {x:parseFloat(vx1), y:parseFloat(vy1), z:parseFloat(vvalor1), polaridad:vcarga1, name:"Carga 1", color:(vcarga1=='Negativa'?'blue':'red'), angulo:angulo1||0, fuerza: fuerzatotal1.toExponential(2)},
     {x:parseFloat(vx2), y:parseFloat(vy2), z:parseFloat(vvalor2), polaridad:vcarga2, name:"Carga 2", color:(vcarga2=='Negativa'?'blue':'red'), angulo:angulo2||0, fuerza: fuerzatotal2.toExponential(2)},
@@ -394,6 +427,10 @@ const magnitud = (x, y) => {
 // const calcularEnergia = (carga1, carga2, distancia) =>{
 //   return ((k*carga1*carga2)/distancia)
 // }
+
+function productoCruz2x2 (vec1X, vec1Y, vec2X, vec2Y){
+  return ((vec1X*vec2Y)-(vec1Y*vec2X));
+}
 
 const sumatoriaCampos = (campo1, campo2, campo3) => {
   let ai = (campo1 * unitarioi(vpx, vpy, vx1, vy1, '', '.'))||0;

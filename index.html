@@ -172,36 +172,65 @@
           </label>
         </div>
       </div>
+      <div class="datosAbajo">
 
-      <div class="punto">
-        <h4 id="titulo_punto">Punto:</h4>
-        <p class="explicacionPunto"><span>Por favor ingresa un punto para calcular el campo y los potenciales electricos</span>
-          <span>Si no lo ingresa se asumira el punto (0,0)</span></p>
-        <label class="labels" for="posicionPuntox">
-          <div class="input-group mb-3">
-            <div class="label input-group-prepend">
-              <span class="input-group-text">Posicion X:</span></div>
-            <input type="number" name="posicionPuntox" id="posicionPuntox" class="form-control posicionCarga inputs">
-            <div class="input-group-append">
-              <span class="input-group-text">m</span>
+        <div class="punto">
+          <h4 id="titulo_punto">Punto:</h4>
+          <p class="explicacionPunto"><span>Por favor ingresa un punto para calcular el campo y los potenciales
+              electricos</span>
+            <span>Si no lo ingresa se asumira el punto (0,0)</span></p>
+          <label class="labels" for="posicionPuntox">
+            <div class="input-group mb-3">
+              <div class="label input-group-prepend">
+                <span class="input-group-text">Posicion X:</span></div>
+              <input type="number" name="posicionPuntox" id="posicionPuntox" class="form-control posicionCarga inputs">
+              <div class="input-group-append">
+                <span class="input-group-text">m</span>
+              </div>
             </div>
-          </div>
-        </label>
-        <label class="labels" for="posicionPuntoy">
-          <div class="input-group mb-3">
-            <div class="label input-group-prepend">
-              <span class="input-group-text">Posicion Y:</span></div>
-            <input type="number" name="posicionPuntoy" id="posicionPuntoy" class="form-control posicionCarga inputs">
-            <div class="input-group-append">
-              <span class="input-group-text">m</span>
+          </label>
+          <label class="labels" for="posicionPuntoy">
+            <div class="input-group mb-3">
+              <div class="label input-group-prepend">
+                <span class="input-group-text">Posicion Y:</span></div>
+              <input type="number" name="posicionPuntoy" id="posicionPuntoy" class="form-control posicionCarga inputs">
+              <div class="input-group-append">
+                <span class="input-group-text">m</span>
+              </div>
             </div>
-          </div>
-        </label>
-        <div class="datosD ast">
-          * e+n = x10^n
-          <br>
-          * e-n = x10^-n
+          </label>
         </div>
+        <div class="Velocidad">
+          <h4 id="titulo_velocidad">Velocidad:</h4>
+          <p class="explicacionVelocidad"><span>Por favor ingresa la velocidad de la carga para calcular la fuerza
+              electromagnetica</span></p>
+          <label class="labels" for="velocidadX">
+            <div class="input-group mb-3">
+              <div class="label input-group-prepend">
+                <span class="input-group-text">Velocidad X:</span></div>
+              <input type="number" name="velocidadX" id="velocidadX" class="form-control posicionCarga inputs">
+              <div class="input-group-append">
+                <span class="input-group-text">m/s</span>
+              </div>
+            </div>
+          </label>
+          <label class="labels" for="velocidadY">
+            <div class="input-group mb-3">
+              <div class="label input-group-prepend">
+                <span class="input-group-text">Velocidad Y:</span></div>
+              <input type="number" name="velocidadY" id="velocidadY" class="form-control posicionCarga inputs">
+              <div class="input-group-append">
+                <span class="input-group-text">m/s</span>
+              </div>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <div class="datosD ast">
+        * e+n = x10^n
+        <br>
+        * e-n = x10^-n
       </div>
       <input type="submit" class="btn btn-primary" value="Calcular">
 
@@ -212,13 +241,15 @@
     <div class="accordion" id="accordion2">
       <div class="card">
         <div class="card-header">
-          <h3><button class="btn btn-link" data-toggle="collapse" data-target="#Cargas">Ubicacion de cargas</button></h3>
+          <h3><button class="btn btn-link" data-toggle="collapse" data-target="#Cargas">Ubicacion de cargas</button>
+          </h3>
         </div>
         <div class="collapse" id="Cargas" data-parent="#accordion2">
           <div class="card-body">
             <span>Si la grafica no se aprecia correctamente por favor vuelve a dar click en calcular </span><br>
-            <img src="./img/Arrow.png" id="arrow" alt="Flecha" /><span class="textDireccion">:Direccion de la fuerza total sobre cada carga</span>
-            <img src="./img/Arrow.png" id="arrowToDraw" alt="Flecha" class="oculto"/>
+            <img src="./img/Arrow.png" id="arrow" alt="Flecha" /><span class="textDireccion">:Direccion de la fuerza
+              total sobre cada carga</span>
+            <img src="./img/Arrow.png" id="arrowToDraw" alt="Flecha" class="oculto" />
             <img src="./img/ArrowsIn.png" id="arrowsIn" class="oculto" alt="Flechas entrando">
             <img src="./img/ArrowsOut.png" id="arrowsOut" class="oculto" alt="Flechas saliendo">
             <div id="chartContainer" style="height: 420px; width: 400px; ">
@@ -236,7 +267,8 @@
       <div class="accordion" id="accordion">
         <div class="card">
           <div class="card-header">
-            <h3 class="mb-0"><button class="btn btn-link" data-toggle="collapse" data-target="#Fuerza">Fuerza</button>
+            <h3 class="mb-0"><button class="btn btn-link" data-toggle="collapse" data-target="#Fuerza">Fuerza
+                Electrica</button>
             </h3>
           </div>
           <div class="collapse" id="Fuerza" data-parent="#accordion">
@@ -332,8 +364,8 @@
         </div>
         <div class="card">
           <div class="card-header">
-            <h3 class="mb-0"><button class="btn btn-link collapsed" data-toggle="collapse"
-                data-target="#Campo">Campo</button></h3>
+            <h3 class="mb-0"><button class="btn btn-link collapsed" data-toggle="collapse" data-target="#Campo">Campo
+                Electrico</button></h3>
           </div>
           <div class="collapse" id="Campo" data-parent="#accordion">
             <div class="card-body">
@@ -382,8 +414,8 @@
           <div class="collapse" id="Potencial" data-parent="#accordion">
             <div class="card-body">
 
-        <div class="datos">
-          <!-- <div class="datosD">
+              <div class="datos">
+                <!-- <div class="datosD">
       <p>Trabajo 1-2:</p>
       <p id="Energia12"></p>
     </div>
@@ -399,57 +431,111 @@
       <p>Trabajo Total:</p>
       <p id="EnergiaTotal"></p>
     </div> -->
-          <div class="datosD">
-            <p>Potencial q<sub>1</sub> en el punto:</p>
-            <p id="potencial1"></p>
+                <div class="datosD">
+                  <p>Potencial q<sub>1</sub> en el punto:</p>
+                  <p id="potencial1"></p>
+                </div>
+                <div class="datosD">
+                  <p>Potencial q<sub>2</sub> en el punto:</p>
+                  <p id="potencial2"></p>
+                </div>
+                <div class="datosD">
+                  <p>Potencial q<sub>3</sub> en el punto:</p>
+                  <p id="potencial3"></p>
+                </div>
+                <div class="datosD">
+                  <p>Potencial total en el punto:</p>
+                  <p id="potencialt"></p>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="datosD">
-            <p>Potencial q<sub>2</sub> en el punto:</p>
-            <p id="potencial2"></p>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <h3 class="mb-0"><button class="btn btn-link collapsed" data-toggle="collapse"
+                data-target="#CampoMagnetico">Campo Magnetico</button></h3>
           </div>
-          <div class="datosD">
-            <p>Potencial q<sub>3</sub> en el punto:</p>
-            <p id="potencial3"></p>
+          <div class="collapse" id="CampoMagnetico" data-parent="#accordion">
+            <div class="card-body">
+
+              <div class="datos">
+                <div class="datosD">
+                  <p>Campo magnetico generado por q<sub>1</sub> en el punto:</p>
+                  <p id="campoMagnetico1"></p>
+                </div>
+                <div class="datosD">
+                  <p>Campo magnetico generado por q<sub>2</sub> en el punto:</p>
+                  <p id="campoMagnetico2"></p>
+                </div>
+                <div class="datosD">
+                  <p>Campo magnetico generado por q<sub>3</sub> en el punto:</p>
+                  <p id="campoMagnetico3"></p>
+                </div>
+                <div class="datosD">
+                  <p>Campo magnetico en el punto:</p>
+                  <p id="campoMagneticoT"></p>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="datosD">
-            <p>Potencial total en el punto:</p>
-            <p id="potencialt"></p>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <h3 class="mb-0"><button class="btn btn-link collapsed" data-toggle="collapse"
+                data-target="#FuerzaMagnetica">Fuerza Magnetica</button></h3>
+          </div>
+          <div class="collapse" id="FuerzaMagnetica" data-parent="#accordion">
+            <div class="card-body">
+
+              <div class="datos">
+                <div class="datosD">
+                  <p>Fuerza magnetica generado por q<sub>1</sub> en el punto:</p>
+                  <p id="fuerzaMagnetica1"></p>
+                </div>
+                <div class="datosD">
+                  <p>Fuerza magnetica generado por q<sub>2</sub> en el punto:</p>
+                  <p id="fuerzaMagnetica2"></p>
+                </div>
+                <div class="datosD">
+                  <p>Fuerza magnetica generado por q<sub>3</sub> en el punto:</p>
+                  <p id="fuerzaMagnetica3"></p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-</div>
-</div>
 
-    <div class="creditos">
-      <p>Hecho por:</p>
-      <pre>
+  <div class="creditos">
+    <p>Hecho por:</p>
+    <pre>
 Luis Daniel Becerra Avellaneda
          lbecerraa
     </pre>
-      <pre>
+    <pre>
 Bryan Julian Castillo Torres
         bcastillot
     </pre>
-      <pre>
+    <pre>
 Daniela Hidalgo Devia
       dhidalgod
     </pre>
-    </div>
+  </div>
 
 
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-    </script>
-    <script src="index.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+  </script>
+  <script src="index.js"></script>
 </body>
 
 </html>

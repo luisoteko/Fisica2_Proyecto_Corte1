@@ -125,3 +125,10 @@ button{
   height: 100%;
   width: 100%;
 }
+
+.datosAbajo{
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto;
+  grid-column-gap: 60px;
+}
