@@ -84,6 +84,10 @@ button{
 #arrow{
   max-width: 80px
 }
+#greenArrow{
+  max-width: 80px;
+  max-width: 60px;
+}
 .textDireccion{
   position:relative;
   top: -15px;

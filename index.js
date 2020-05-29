@@ -175,6 +175,9 @@ const calcular = () => {
   angulo2 = Math.abs(Math.atan(fuerzatotal2y/fuerzatotal2x));
   angulo3 = Math.abs(Math.atan(fuerzatotal3y/fuerzatotal3x));
 
+
+  anguloVelocidad = Math.abs(Math.atan(vvelocidady/vvelocidadx));
+
   let d1px = Math.abs(vx1 - vpx)||0;
   let d1py = Math.abs(vy1 - vpy)||0;
   let d2px = Math.abs(vx2 - vpx)||0;
@@ -185,7 +188,7 @@ const calcular = () => {
   let campoMagnetico1 = (u0/(4*Math.PI)) *  vvalor1 * productoCruz2x2(vvelocidadx, vvelocidady, d1px, d1py) / (distancia(vx1,vy1,vpx,vpy)**3);
   let campoMagnetico2 = (u0/(4*Math.PI)) *  vvalor2 * productoCruz2x2(vvelocidadx, vvelocidady, d2px, d2py) / (distancia(vx2,vy2,vpx,vpy)**3);
   let campoMagnetico3 = (u0/(4*Math.PI)) *  vvalor3 * productoCruz2x2(vvelocidadx, vvelocidady, d3px, d3py) / (distancia(vx3,vy3,vpx,vpy)**3);
-  
+
   campoMagnetico1 = vcarga1=="Negativo"?(-campoMagnetico1):campoMagnetico1
   campoMagnetico2 = vcarga2=="Negativo"?(-campoMagnetico2):campoMagnetico2
   campoMagnetico3 = vcarga3=="Negativo"?(-campoMagnetico3):campoMagnetico3
@@ -205,7 +208,7 @@ const calcular = () => {
         angulo1 -= Math.PI/2;
         console.log("angulo1 while1 if1")
       }
-    }    
+    }
   } else if(fuerzatotal1x>=0 && fuerzatotal1y<0){
 
     while(angulo1.toString()!="NaN" && !(angulo1>=(3/2)*Math.PI && angulo1<=2*Math.PI)){
@@ -531,9 +534,8 @@ const loadGraphic = () => {
   chart.legend.set("horizontalAlign", "center");
   chart.legend.set("margin", "20");
 
-  let arrowsIn = document.getElementById("arrowsIn");
-  let arrowsOut = document.getElementById("arrowsOut");
   let arrow = document.getElementById("arrowToDraw");
+  let arrowVel = document.getElementById("greenArrow");
   let ctx = chart.ctx.canvas.getContext('2d');
 
 
@@ -568,7 +570,15 @@ const loadGraphic = () => {
     console.log(angulos[i]);
     (angulos[i].toString()!="NaN")? ctx.drawImage(arrow, -tamCx/2, -tamCy/2, tamCx,tamCy):null;
     ctx.restore();
+    ctx.save();
+    ctx.translate(posCargax, posCargay);
+    ctx.rotate( anguloVelocidad);
+    console.log(anguloVelocidad);
+    (anguloVelocidad.toString()!="NaN")? ctx.drawImage(arrowVel, -tamCx/2, -tamCy/2, tamCx,tamCy):null;
+    ctx.restore();
     p++;
   }
+
+  
 };
 
