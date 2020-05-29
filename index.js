@@ -175,21 +175,26 @@ const calcular = () => {
   angulo2 = Math.abs(Math.atan(fuerzatotal2y/fuerzatotal2x));
   angulo3 = Math.abs(Math.atan(fuerzatotal3y/fuerzatotal3x));
 
-  d1px = vx1 - vpx
-  d1py = vy1 - vpy
-  d2px = vx2 - vpx
-  d2py = vy2 - vpy
-  d3px = vx3 - vpx
-  d3py = vy3 - vpy
+  let d1px = Math.abs(vx1 - vpx)||0;
+  let d1py = Math.abs(vy1 - vpy)||0;
+  let d2px = Math.abs(vx2 - vpx)||0;
+  let d2py = Math.abs(vy2 - vpy)||0;
+  let d3px = Math.abs(vx3 - vpx)||0;
+  let d3py = Math.abs(vy3 - vpy)||0;
 
-  campoMagnetico1 = (u0/(4*Math.PI)) *  vvalor1 * productoCruz2x2(d1px, d1py, vvelocidadx, vvelocidady) / (distancia(vx1,vy1,vpx,vpy)**3);
-  campoMagnetico2 = (u0/(4*Math.PI)) *  vvalor2 * productoCruz2x2(d2px, d2py, vvelocidadx, vvelocidady) / (distancia(vx2,vy2,vpx,vpy)**3);
-  campoMagnetico3 = (u0/(4*Math.PI)) *  vvalor3 * productoCruz2x2(d3px, d3py, vvelocidadx, vvelocidady) / (distancia(vx3,vy3,vpx,vpy)**3);
-  campoMagneticoT = campoMagnetico1 + campoMagnetico2 + campoMagnetico3;
+  let campoMagnetico1 = (u0/(4*Math.PI)) *  vvalor1 * productoCruz2x2(vvelocidadx, vvelocidady, d1px, d1py) / (distancia(vx1,vy1,vpx,vpy)**3);
+  let campoMagnetico2 = (u0/(4*Math.PI)) *  vvalor2 * productoCruz2x2(vvelocidadx, vvelocidady, d2px, d2py) / (distancia(vx2,vy2,vpx,vpy)**3);
+  let campoMagnetico3 = (u0/(4*Math.PI)) *  vvalor3 * productoCruz2x2(vvelocidadx, vvelocidady, d3px, d3py) / (distancia(vx3,vy3,vpx,vpy)**3);
+  
+  campoMagnetico1 = vcarga1=="Negativo"?(-campoMagnetico1):campoMagnetico1
+  campoMagnetico2 = vcarga2=="Negativo"?(-campoMagnetico2):campoMagnetico2
+  campoMagnetico3 = vcarga3=="Negativo"?(-campoMagnetico3):campoMagnetico3
 
-  fuerzaMagnetica1 = vvalor1 * distancia(0,0,vvelocidadx,vvelocidady) * campoMagnetico1;
-  fuerzaMagnetica2 = vvalor2 * distancia(0,0,vvelocidadx,vvelocidady) * campoMagnetico2;
-  fuerzaMagnetica3 = vvalor3 * distancia(0,0,vvelocidadx,vvelocidady) * campoMagnetico3;
+  let campoMagneticoT = campoMagnetico1 + campoMagnetico2 + campoMagnetico3;
+
+  let fuerzaMagnetica1 = vvalor1 * distancia(0,0,vvelocidadx,vvelocidady) * campoMagnetico1;
+  let fuerzaMagnetica2 = vvalor2 * distancia(0,0,vvelocidadx,vvelocidady) * campoMagnetico2;
+  let fuerzaMagnetica3 = vvalor3 * distancia(0,0,vvelocidadx,vvelocidady) * campoMagnetico3;
 
   if(fuerzatotal1x>=0 && fuerzatotal1y>=0){
     while(angulo1.toString()!="NaN" && !(angulo1>=0 && angulo1<=(1/2)*Math.PI)){
@@ -428,8 +433,8 @@ const magnitud = (x, y) => {
 //   return ((k*carga1*carga2)/distancia)
 // }
 
-function productoCruz2x2 (vec1X, vec1Y, vec2X, vec2Y){
-  return ((vec1X*vec2Y)-(vec1Y*vec2X));
+function productoCruz2x2(vec1X=0, vec1Y=0, vec2X=0, vec2Y=0) {
+  return (vec1X*vec2Y)-(vec1Y*vec2X);
 }
 
 const sumatoriaCampos = (campo1, campo2, campo3) => {
